@@ -51,18 +51,44 @@ gulp.task('nunjucks', function () {
 // ));
 
 
-
-gulp.task('default', ['browserSync', 'sass', 'nunjucks'], function () {
-  //a list of watchers, so it will watch all of the following files waiting for changes
-  gulp.watch('src/scss/**/*.scss', ['sass']);
-  gulp.watch('src/templates/**/*', ['nunjucks']);
-});
-
-
-
 // // default
 // gulp.task('default', ['sass', 'sass:watch', 'nunjucks:watch', 'nunjucks']);
 
 
-// build
+
+
+
+
+
+
+
+// gulp.task('default', ['browserSync', 'sass', 'nunjucks',], function () {
+//   //a list of watchers, so it will watch all of the following files waiting for changes
+//   gulp.watch('src/scss/**/*.scss', ['sass']);
+//   gulp.watch('src/templates/**/*', ['nunjucks']);
+// });
+
+
+
+
+
+gulp.task('watch', () => {
+  gulp.watch('src/scss/**/*.scss', ['sass']);
+  gulp.watch('src/templates/**/*', ['nunjucks']);
+  gulp.watch('src/*.html', browserSync.reload);
+});
+
+gulp.task('sass:watch', ['browserSync', 'sass',], () => (
+  gulp.watch('src/scss/**/*.scss', ['sass'])
+));
+
+gulp.task('nunjucks:watch', ['browserSync', 'nunjucks',], () => (
+  gulp.watch('src/templates/**/*', ['nunjucks'])
+));
+
+gulp.task('default', ['sass', 'sass:watch', 'nunjucks:watch']);
+
+
+
+
 gulp.task('build', ['sass', 'nunjucks']);
