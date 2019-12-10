@@ -1,22 +1,22 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
-const sourcemaps = require('gulp-sourcemaps');
+// const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync').create();
 const nunjucksRender = require('gulp-nunjucks-render');
 
 gulp.task('browserSync', () => {
   browserSync.init({
     server: {
-      baseDir: 'src'
+      baseDir: 'src/'
     },
   })
 });
 
 gulp.task('sass', () => (
   gulp.src('src/scss/**/*.scss')
-    .pipe(sourcemaps.init())
+    // .pipe(sourcemaps.init())
     .pipe(sass.sync().on('error', sass.logError))
-    .pipe(sourcemaps.write('./maps'))
+    // .pipe(sourcemaps.write('./maps'))
     .pipe(gulp.dest('./src/css'))
     .pipe(browserSync.reload({
       stream: true
