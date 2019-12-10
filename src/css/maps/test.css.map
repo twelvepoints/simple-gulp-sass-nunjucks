@@ -1,0 +1,1 @@
+{"version":3,"file":"../test.css","sources":["test.scss"],"sourcesContent":["body {\n  font-family: verdana, sans-serif;\n  font-size: 16px;\n  color: blue;\n}\n\nh1 {\n  color: pink;\n\n}"],"names":[],"mappings":"AAAA,AAAA,IAAI,CAAC;EACH,WAAW,EAAE,mBAAmB;EAChC,SAAS,EAAE,IAAI;EACf,KAAK,EAAE,IAAI,GACZ;;AAED,AAAA,EAAE,CAAC;EACD,KAAK,EAAE,IAAI,GAEZ"}
